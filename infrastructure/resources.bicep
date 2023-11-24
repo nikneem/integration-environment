@@ -69,3 +69,12 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
     WorkspaceResourceId: logAnalytics.id
   }
 }
+
+resource serviceBus 'Microsoft.ServiceBus/namespaces@2022-10-01-preview' = {
+  name: '${systemName}-bus'
+  location: location
+  sku: {
+    name: 'Standard'
+    tier: 'Standard'
+  }
+}
